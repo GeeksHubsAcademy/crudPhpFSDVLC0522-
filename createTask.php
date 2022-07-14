@@ -1,12 +1,7 @@
-<?php
-    $server = "db";
-    $user = 'root';
-    $password = 'root';
-    $databaseName = 'fsd_crud_php';
-  
+<?php  
     try {
-        $connection = new PDO("mysql:host=$server;dbname=$databaseName", $user, $password);
-
+        require('./db.php');
+        
         $title = $_POST['title'];        
 
         $sql = "INSERT INTO tasks (title) VALUES ('$title')";

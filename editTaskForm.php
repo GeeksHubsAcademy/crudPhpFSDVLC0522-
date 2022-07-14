@@ -1,13 +1,8 @@
 <?php
 
-    $server = "db";
-    $user = 'root';
-    $password = 'root';
-    $databaseName = 'fsd_crud_php';
-
     try {
-        $connection = new PDO("mysql:host=$server;dbname=$databaseName", $user, $password);
-        
+        require('./db.php');
+
         $idTask = $_GET['id'];
 
         $sql = "SELECT * FROM tasks WHERE (id=$idTask)";

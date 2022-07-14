@@ -1,11 +1,6 @@
 <?php
-    $server = "db";
-    $user = 'root';
-    $password = 'root';
-    $databaseName = 'fsd_crud_php';
-
     try {
-        $connection = new PDO("mysql:host=$server;dbname=$databaseName", $user, $password);
+        require('./db.php');
 
         $sql = "SELECT * FROM tasks";
 

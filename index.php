@@ -1,6 +1,22 @@
 <?php
+    $server = "db";
+    $user = 'root';
+    $password = 'root';
+    $databaseName = 'fsd_crud_php';
 
+    try {
+        $connection = new PDO("mysql:host=$server;dbname=$databaseName", $user, $password);
 
+        $sql = "SELECT * FROM tasks";
+
+        $result = $connection->prepare($sql);
+
+        $result->execute();
+
+        $tasks = $result->fetchAll();        
+    } catch (\Exception $exception) {
+        echo 'Error Exception: ' . $exception->getMessage();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +35,16 @@
         <p>Title: <input type="text" name="title" /></p>
         <p><input type="submit" value="Enviar"/></p>
     </form>
+
+    <h1>Listado de tareas</h1>
+    <ul>
+        <?php foreach($tasks as $task): ?>
+            <li>
+                <?php echo $task['id']; ?> - <?php echo $task['title']; ?>
+            </li>
+        <?php endforeach;?>
+
+    </ul>
 </body>
 
 </html>

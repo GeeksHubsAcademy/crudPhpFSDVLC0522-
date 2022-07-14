@@ -13,7 +13,7 @@
 
         $connection->exec($sql);
 
-        echo "Has creado una tarea correctamente";
+        header("Location: ./index.php");
         
     } catch (\Exception $exception) {
         echo 'Error Exception: ' . $exception->getMessage();

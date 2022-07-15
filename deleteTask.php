@@ -17,7 +17,7 @@
           
             $sql2 = "DELETE FROM tasks WHERE id = '$idTask'";
 
-            $connection->exec($sql);
+            $connection->exec($sql2);
 
             header('location: ./index.php');
         } else {

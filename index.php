@@ -36,6 +36,11 @@
         <?php foreach($tasks as $task): ?>
             <li>
                 <button><a href="./editTaskForm.php?id=<?php echo $task['id']; ?>">Edit task</a></button>
+                <button>
+                    <a href="./deleteTask.php?id=<?php echo $task['id'];?>">
+                     Delete task
+                    </a> 
+                </button>
                 <?php echo $task['id']; ?> - <?php echo $task['title']; ?>
             </li>
         <?php endforeach;?>

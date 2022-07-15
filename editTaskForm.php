@@ -11,10 +11,7 @@
 
         $result->execute();
 
-        $task = $result->fetch(PDO::FETCH_OBJ);
-
-
-        // $result = $connection->pr
+        $task = $result->fetch();
     } catch (\Exception $exception) {
         echo 'Error Exception: ' . $exception->getMessage();
     }   
@@ -30,9 +27,10 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="updateTask.php" method="post">
-        <input type="text" name="title" value="<?php echo $task->title; ?>">
-        <input type="submit" value="Actualizar tareas" name="submit">
+    <form action="editTask.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $task['id']; ?>"> 
+        <input type="text" name="title" value="<?php echo $task['title']; ?>">
+        <input type="submit" value="Actualizar tarea" name="submit">
     </form>
 </body>
 </html>

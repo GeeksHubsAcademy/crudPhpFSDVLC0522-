@@ -26,8 +26,8 @@
     } catch (\Exception $exception) {
         if($exception->getMessage() === 'No existe la tarea que quires eliminar') {
             echo $exception->getMessage();
+        } else {
+            echo 'Error Exception: ' . $exception->getMessage();
         }
-
-        echo 'Error Exception: ' . $exception->getMessage();
     }
 ?>
